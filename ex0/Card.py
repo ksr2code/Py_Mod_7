@@ -1,17 +1,25 @@
 from abc import ABC, abstractmethod
 
+
 class Card(ABC):
+    CARD_TYPE = "Card"
+
     def __init__(self, name: str, cost: int, rarity: str):
         self.name = name
         self.cost = cost
-        self.rarity  = rarity
+        self.rarity = rarity
 
     @abstractmethod
     def play(self, game_state: dict) -> dict:
         pass
 
     def get_card_info(self) -> dict:
-        pass
+        return {
+            "name": self.name,
+            "cost": self.cost,
+            "rarity": self.rarity,
+            "type": self.CARD_TYPE,
+        }
 
     def is_playable(self, available_mana: int) -> bool:
         pass
