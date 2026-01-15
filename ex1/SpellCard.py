@@ -35,8 +35,16 @@ class SpellCard(Card):
             }
 
     def resolve_effect(self, targets: list) -> dict:
+        total_damage = 0
+        survivors = []
+        for target in targets:
+            target.health -= 3
+            total_damage += 3
+            if target.health <= 0:
+                survivors += [target]
         return {
             "spell": self.name,
             "targets": [target.name for target in targets],
-            "effect_type": self.effect_type,
+            "damage_dealt": total_damage,
+            "combat_resolved": False if survivors else True
         }
