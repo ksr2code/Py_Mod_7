@@ -22,11 +22,7 @@ class ArtifactCard(Card):
                 "mana_used": self.cost,
                 "effect": self.effect
             }
-        else:
-            return {
-                "card_played": None,
-                "error": f"Insufficient mana: {self.cost} required"
-            }
+        return {'card_played': None, 'error': 'Insufficient mana'}
 
     def activate_ability(self) -> dict:
         if self.durability > 0:

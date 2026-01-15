@@ -19,11 +19,7 @@ class CreatureCard(Card):
                 "mana_used": self.cost,
                 "effect": "Creature summoned to battlefield"
             }
-        else:
-            return {
-                "card_played": None,
-                "error": f"Insufficient mana: {self.cost} required"
-            }
+        return {'card_played': None, 'error': 'Insufficient mana'}
 
     def attack_target(self, target) -> dict:
         return {

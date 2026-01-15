@@ -28,11 +28,7 @@ class SpellCard(Card):
                 "mana_used": self.cost,
                 "effect": effect
             }
-        else:
-            return {
-                "card_played": None,
-                "error": f"Insufficient mana: {self.cost} required"
-            }
+        return {'card_played': None, 'error': 'Insufficient mana'}
 
     def resolve_effect(self, targets: list) -> dict:
         total_damage = 0
