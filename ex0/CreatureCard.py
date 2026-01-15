@@ -13,7 +13,7 @@ class CreatureCard(Card):
     def play(self, game_state: dict) -> dict:
         if self.is_playable(game_state["mana"]):
             game_state["mana"] -= self.cost
-            game_state["battlefield"].append(self)
+            game_state["battlefield"] += [self]
             return {
                 "card_played": self.name,
                 "mana_used": self.cost,
