@@ -40,7 +40,7 @@ class SpellCard(Card):
         for target in targets:
             target.health -= 3
             total_damage += 3
-            if target.health <= 0:
+            if target.health > 0:
                 survivors += [target]
         return {
             "spell": self.name,
