@@ -3,6 +3,7 @@ from abc import ABC, abstractmethod
 
 class Card(ABC):
     CARD_TYPE = "Card"
+    SIGNATURES = ['play', 'get_card_info', 'is_playable']
 
     def __init__(self, name: str, cost: int, rarity: str):
         self.name = name

@@ -2,6 +2,8 @@ from abc import ABC, abstractmethod
 
 
 class Combatable(ABC):
+    SIGNATURES = ['attack', 'defend', 'get_combat_stats']
+
     @abstractmethod
     def attack(self, target) -> dict:
         pass
