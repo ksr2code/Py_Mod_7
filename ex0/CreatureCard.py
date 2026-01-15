@@ -11,10 +11,27 @@ class CreatureCard(Card):
         self.health = health
 
     def play(self, game_state: dict) -> dict:
-        pass
+        if self.is_playable(game_state["mana"]):
+            game_state["mana"] -= self.cost
+            game_state["battlefield"].append(self)
+            return {
+                "card_played": self.name,
+                "mana_used": self.cost,
+                "effect": "Creature summoned to battlefield"
+            }
+        else:
+            return {
+                "card_played": None,
+                "error": f"Insufficient mana: {self.cost} required"
+            }
 
     def attack_target(self, target) -> dict:
-        pass
+        return {
+            "attacker": self.name,
+            "target": target.name,
+            "damage_dealt": self.attack,
+            "combat_resolved": self.attack >= target.health
+        }
 
     def get_card_info(self) -> dict:
         card_info = super().get_card_info()
