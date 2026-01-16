@@ -21,9 +21,9 @@ class Arg(Enum):
 
 class FantasyCardFactory(CardFactory):
     def create_creature(self, name_or_power: str | int | None = None) -> Card:
-        if name_or_power == "dragon" or 7:
+        if name_or_power in ("dragon", 7):
             return CreatureCard(*Arg.FIRE_DRAGON.value)
-        elif name_or_power == "goblin" or 2:
+        elif name_or_power in ("goblin", 2):
             return CreatureCard(*Arg.GOBLIN.value)
         return random.choice((
             CreatureCard(*Arg.FIRE_DRAGON.value),
@@ -31,9 +31,9 @@ class FantasyCardFactory(CardFactory):
         ))
 
     def create_spell(self, name_or_power: str | int | None = None) -> Card:
-        if name_or_power == "fireball" or 4:
+        if name_or_power in ("fireball", 4):
             return SpellCard(*Arg.FIREBALL.value)
-        elif name_or_power == "lightning bolt" or 3:
+        elif name_or_power in ("lightning bolt", 3):
             return SpellCard(*Arg.LIGHTNING.value)
         return random.choice((
             SpellCard(*Arg.FIREBALL.value),
@@ -41,9 +41,9 @@ class FantasyCardFactory(CardFactory):
         ))
 
     def create_artifact(self, name_or_power: str | int | None = None) -> Card:
-        if name_or_power == "mana_crystal" or 5:
+        if name_or_power in ("mana_crystal", 5):
             return ArtifactCard(*Arg.MANA_CRYSTAL.value)
-        elif name_or_power == "wisdom_ring" or 4:
+        elif name_or_power in ("wisdom_ring", 4):
             return ArtifactCard(*Arg.WISDOM_RING.value)
         return random.choice((
             ArtifactCard(*Arg.MANA_CRYSTAL.value),
