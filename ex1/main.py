@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 
-from ex0.CreatureCard import CreatureCard
+from ex0.CreatureCard import CreatureCard, CreatureArg
 from ex1.Deck import Deck
-from ex1.SpellCard import SpellCard
-from ex1.ArtifactCard import ArtifactCard
+from ex1.SpellCard import SpellCard, SpellArg
+from ex1.ArtifactCard import ArtifactCard, ArtifactArg
 
 
 def main_ex1():
@@ -11,10 +11,9 @@ def main_ex1():
     print()
     print("Building deck with different card types...")
     cards = [
-        SpellCard("Lightning Bolt", 3, "Common", "damage"),
-        ArtifactCard("Mana Crystal", 2, "Common", 5,
-                     "Permanent: +1 mana per turn"),
-        CreatureCard("Fire Dragon", 5, "Legendary", 7, 5)
+        SpellCard(*SpellArg.LIGHTNING.value),
+        ArtifactCard(*ArtifactArg.MANA_CRYSTAL.value),
+        CreatureCard(*CreatureArg.FIRE_DRAGON.value)
     ]
     deck = Deck()
     for card in cards:

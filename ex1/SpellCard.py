@@ -1,4 +1,10 @@
 from ex0.Card import Card
+from enum import Enum
+
+
+class SpellArg(Enum):
+    FIREBALL = ("Fireball", 4, "Uncommon", "damage")
+    LIGHTNING = ("Lightning Bolt", 3, "Common", "damage")
 
 
 class SpellCard(Card):

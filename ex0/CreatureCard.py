@@ -1,4 +1,10 @@
 from ex0.Card import Card
+from enum import Enum
+
+
+class CreatureArg(Enum):
+    FIRE_DRAGON = ("Fire Dragon", 5, "Legendary", 7, 5)
+    GOBLIN = ("Goblin Warrior", 2, "Common", 2, 1)
 
 
 class CreatureCard(Card):

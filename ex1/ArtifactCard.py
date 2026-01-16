@@ -1,4 +1,12 @@
 from ex0.Card import Card
+from enum import Enum
+
+
+class ArtifactArg(Enum):
+    MANA_CRYSTAL = ("Mana Crystal", 2, "Common", 5,
+                    "Permanent: +1 mana per turn")
+    WISDOM_RING = ("Ring of Wisdom", 4, "Rare", 4,
+                   "Permanent: Draw an extra card each turn")
 
 
 class ArtifactCard(Card):
