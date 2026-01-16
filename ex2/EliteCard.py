@@ -1,6 +1,12 @@
 from ex0.Card import Card
 from ex2.Combatable import Combatable
 from ex2.Magical import Magical
+from enum import Enum
+
+
+class EliteArg(Enum):
+    ARCANE_WARRIOR = ("Arcane Warrior", 5, "Legendary")
+    ENEMY = ("Enemy", 2, "Common", 2, 1)
 
 
 class EliteCard(Card, Combatable, Magical):

@@ -3,7 +3,7 @@
 from ex0.Card import Card
 from ex0.CreatureCard import CreatureCard
 from ex2.Combatable import Combatable
-from ex2.EliteCard import EliteCard
+from ex2.EliteCard import EliteCard, EliteArg
 from ex2.Magical import Magical
 
 
@@ -16,8 +16,8 @@ def main_ex2():
     print(f"- Magical: {Magical.SIGNATURES}")
     print()
     print("Playing Arcane Warrior (Elite Card):")
-    elite = EliteCard("Arcane Warrior", 5, "Legendary")
-    enemy = CreatureCard("Enemy", 2, "Common", 2, 1)
+    elite = EliteCard(*EliteArg.ARCANE_WARRIOR.value)
+    enemy = CreatureCard(*EliteArg.ENEMY.value)
     print()
     print("Combat phase:")
     print(f"Attack result: {elite.attack(enemy)}")
