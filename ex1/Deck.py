@@ -10,16 +10,16 @@ class Deck():
         self.cards += [card]
 
     def remove_card(self, card_name: str) -> bool:
-        for card in self.cards:
-            if card.name == card_name:
-                self.cards.remove(card)
-                return True
-        return False
+        original_count = len(self.cards)
+        self.cards = [card for card in self.cards if card.name != card_name]
+        return len(self.cards) < original_count
 
     def shuffle(self) -> None:
         random.shuffle(self.cards)
 
     def draw_card(self) -> Card:
+        if not self.cards:
+            raise ValueError("Cannot draw from empty deck")
         return self.cards.pop(0)
 
     def get_deck_stats(self) -> dict:
